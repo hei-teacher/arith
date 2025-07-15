@@ -12,6 +12,8 @@ public class AdditionController {
   public long addition(@RequestParam long a, @RequestParam long b) {
     if (a < 0 || b < 0) {
       log.warn("Negative inputs are not allowed");
+    } else if (a + b < 0) {
+      log.error("Inputs are too large");
     }
     return a + b;
   }
